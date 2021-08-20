@@ -20,16 +20,24 @@ void Snake::move()
 		}
 	}
 	
-	if (this->dir == Direction::Up)
+	switch (this->dir)
+	{
+	case Direction::Up:
 		--this->snakeBody[0].position.y;
-	if (this->dir == Direction::Dowm)
+		break;
+	case Direction::Dowm:
 		++this->snakeBody[0].position.y;
-	if (this->dir == Direction::Right)
+		break;
+	case Direction::Right:
 		++this->snakeBody[0].position.x;
-	if (this->dir == Direction::Left)
+		break;
+	case Direction::Left:
 		--this->snakeBody[0].position.x;
-	if (this->dir == Direction::None)
+		break;
+	default:
 		this->snakeBody[0].position += sf::Vector2i(0, 0);
+		break;
+	}
 }
 
 Snake::Snake()
